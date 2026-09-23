@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHelpLang | Professionelle Übersetzung & Nachhilfe</title>
+    <meta name="description" content="Sorgfältige Übersetzungen zwischen Deutsch und Englisch, Datei- und Textübersetzung sowie Sprachnachhilfe – von Hand, persönlich betreut.">
+
+    <!-- Installierbare App (Web + Android via Trusted Web Activity) -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0d211d">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="iHelpLang">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="icon" href="/assets/icons/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/assets/icons/favicon-16.png" sizes="16x16" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="ads.css">
+
+    <script defer data-domain="eng-deu.netlify.app" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+    <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+
+    <svg class="flag-symbols" aria-hidden="true" focusable="false">
+        <symbol id="flag-de" viewBox="0 0 30 20"><path fill="#1c1c1c" d="M0 0h30v6.67H0z"/><path fill="#d52b1e" d="M0 6.67h30v6.66H0z"/><path fill="#f5c443" d="M0 13.33h30V20H0z"/></symbol>
+        <symbol id="flag-en" viewBox="0 0 30 20"><path fill="#24457d" d="M0 0h30v20H0z"/><path stroke="#fff" stroke-width="4" d="m0 0 30 20M30 0 0 20"/><path stroke="#cf3345" stroke-width="2" d="m0 0 30 20M30 0 0 20"/><path fill="#fff" d="M12 0h6v20h-6zM0 7h30v6H0z"/><path fill="#cf3345" d="M13 0h4v20h-4zM0 8h30v4H0z"/></symbol>
+        <symbol id="flag-es" viewBox="0 0 30 20"><path fill="#c93535" d="M0 0h30v20H0z"/><path fill="#f5cc55" d="M0 5h30v10H0z"/><circle cx="9" cy="10" r="1.6" fill="#c93535"/></symbol>
+        <symbol id="flag-fr" viewBox="0 0 30 20"><path fill="#28529a" d="M0 0h10v20H0z"/><path fill="#fff" d="M10 0h10v20H10z"/><path fill="#df3c4f" d="M20 0h10v20H20z"/></symbol>
+        <symbol id="flag-it" viewBox="0 0 30 20"><path fill="#299468" d="M0 0h10v20H0z"/><path fill="#fff" d="M10 0h10v20H10z"/><path fill="#d9474f" d="M20 0h10v20H20z"/></symbol>
+        <symbol id="flag-nl" viewBox="0 0 30 20"><path fill="#c73d4c" d="M0 0h30v6.67H0z"/><path fill="#fff" d="M0 6.67h30v6.66H0z"/><path fill="#31548d" d="M0 13.33h30V20H0z"/></symbol>
+        <symbol id="flag-uk" viewBox="0 0 30 20"><path fill="#3479c8" d="M0 0h30v10H0z"/><path fill="#f4cf4d" d="M0 10h30v10H0z"/></symbol>
+        <symbol id="flag-ru" viewBox="0 0 30 20"><path fill="#fff" d="M0 0h30v6.67H0z"/><path fill="#31559b" d="M0 6.67h30v6.66H0z"/><path fill="#ce3f4d" d="M0 13.33h30V20H0z"/></symbol>
+    </svg>
+
+    <nav class="navbar" aria-label="Hauptnavigation">
+        <div class="nav-container">
+            <a href="#start" class="nav-logo" data-interface-no-translate>iHelp<span style="color: var(--sun);">Lang</span></a>
+            <ul class="nav-menu" id="primary-navigation">
+                <li><a href="#start" class="nav-links" aria-current="location">Startseite</a></li>
+                <li><a href="#services-skills" class="nav-links">Leistungen</a></li>
+                <li><a href="#anfrage" class="nav-links">Anfrage stellen</a></li>
+                <li><a href="#document-translator" class="nav-links">Datei-Übersetzung</a></li>
+                <li><a href="#vertrauen" class="nav-links">So arbeite ich</a></li>
+                <li><a href="#werbefrei" class="nav-links">Werbefrei</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-picker" data-interface-no-translate>
+                    <button class="language-trigger" id="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-menu" aria-label="Sprache der Benutzeroberfläche auswählen">
+                        <svg class="language-flag" aria-hidden="true"><use id="language-trigger-flag" href="#flag-de"></use></svg>
+                        <span id="language-trigger-label">Deutsch</span>
+                        <svg class="language-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+                    </button>
+                    <div class="language-menu" id="language-menu" role="listbox" aria-label="Verfügbare Sprachen" hidden>
+                        <button type="button" class="language-option is-selected" role="option" aria-selected="true" data-interface-language="de"><svg class="language-flag" aria-hidden="true"><use href="#flag-de"></use></svg><span>Deutsch</span></button>
+                        <button type="button" class="language-option" role="option" aria-selected="false" data-interface-language="en"><svg class="language-flag" aria-hidden="true"><use href="#flag-en"></use></svg><span>English</span></button>
+                        <button type="button" class="language-option" role="option" aria-selected="false" data-interface-language="es"><svg class="language-flag" aria-hidden="true"><use href="#flag-es"></use></svg><span>Español</span></button>
+                        <button type="button" class="language-option" role="option" aria-selected="false" data-interface-language="fr"><svg class="language-flag" aria-hidden="true"><use href="#flag-fr"></use></svg><span>Français</span></button>
+                        <button type="button" class="language-option" role="option" aria-selected="false" data-interface-language="it"><svg class="language-flag" aria-hidden="true"><use href="#flag-it"></use></svg><span>Italiano</span></button>
+                        <button type="button" class="language-option" role="option" aria-selected="false" data-interface-language="nl"><svg class="language-flag" aria-hidden="true"><use href="#flag-nl"></use></svg><span>Nederlands</span></button>
+                        <button type="button" class="language-option" role="option" aria-selected="false" data-interface-language="uk"><svg class="language-flag" aria-hidden="true"><use href="#flag-uk"></use></svg><span>Українська</span></button>
+                        <button type="button" class="language-option" role="option" aria-selected="false" data-interface-language="ru"><svg class="language-flag" aria-hidden="true"><use href="#flag-ru"></use></svg><span>Русский</span></button>
+                    </div>
+                    <span class="language-status" id="language-status" role="status" aria-live="polite"></span>
+                </div>
+                <button class="menu-toggle" id="mobile-menu" aria-label="Navigation" aria-controls="primary-navigation" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+        <button type="button" class="nav-backdrop" aria-label="Navigation schließen" aria-hidden="true" tabindex="-1"></button>
+    </nav>
+
+    <header class="hero" id="start">
+        <div class="container">
+            <h1 data-interface-no-translate>iHelp<span style="color: var(--sun);">Lang</span></h1>
+            <p style="font-size: 1.5rem; font-weight: 300; letter-spacing: 1px; color: #c9e6dc; margin-bottom: 10px;">
+                Connecting Words. Empowering Minds.
+            </p>
+            <p style="opacity: 0.9; max-width: 620px; margin: 0 auto 25px auto;">
+                Herzlich willkommen. Ich übersetze zwischen Deutsch und Englisch – sorgfältig, von Hand –
+                und begleite Sie so lange, bis sich die englische Sprache vertraut anfühlt.
+            </p>
+            <div class="hero-actions">
+                <a href="#anfrage" class="btn">Persönlich anfragen</a>
+                <a href="#document-translator" class="btn-ghost">Sofort automatisch übersetzen</a>
+                <button type="button" class="btn-ghost" onclick="window.iHelpChat && window.iHelpChat.open()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.4-.6L3 21l1.8-4.6A8.2 8.2 0 0 1 3.6 11.5 8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4Z"/></svg>
+                    Mit Mira sprechen
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" id="main-content">
+
+        <section id="services-skills" class="card" style="border-left: 5px solid var(--accent);">
+            <h2 style="color: var(--ink); margin-bottom: 15px;">Sprache, die überzeugt</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: var(--ink-soft);">
+                Ob ein wichtiger Text die Sprache wechseln soll oder Sie sich im Englischen endlich sicher fühlen
+                möchten – hier bekommen Sie beides: sorgfältige Arbeit und jemanden, der Ihnen zuhört.
+            </p>
+            <div class="card-grid" style="margin-top: 20px; gap: 20px;">
+                <div class="skill-tile">
+                    <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15.5H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/><path d="M9 8h6M9 12h4"/></svg></span>
+                    <h4 style="color: var(--accent-deep); margin-bottom: 8px;">Handgefertigte Übersetzung</h4>
+                    <p style="font-size: 0.95rem; color: var(--ink-soft);">Jeder Satz von Hand übertragen – ausschließlich für <strong>Deutsch &larr;&rarr; Englisch</strong>. Keine generischen Maschinen-Phrasen, sondern Ihr Ton in der jeweils anderen Sprache.</p>
+                    <button type="button" class="text-link" data-inquiry-open="translation">Übersetzung anfragen <span aria-hidden="true">→</span></button>
+                </div>
+                <div class="skill-tile">
+                    <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 2.5 8.6 12 13.2l9.5-4.6L12 4Z"/><path d="M6.5 11v4.6c0 1.4 2.5 2.6 5.5 2.6s5.5-1.2 5.5-2.6V11"/><path d="M21.5 8.6v5"/></svg></span>
+                    <h4 style="color: var(--accent-deep); margin-bottom: 8px;">Nachhilfe in Ihrem Tempo</h4>
+                    <p style="font-size: 0.95rem; color: var(--ink-soft);">Für Schule, Studium oder Beruf. Wir nehmen uns die Zeit, die es braucht – bis die Grammatik kein Rätsel mehr ist und Sie im Gespräch sicher agieren.</p>
+                    <button type="button" class="text-link" data-inquiry-open="tutoring">Nachhilfe anfragen <span aria-hidden="true">→</span></button>
+                </div>
+            </div>
+        </section>
+
+        <aside class="ad-slot" data-ad-slot-name="start-oben" aria-label="Anzeige" hidden>
+            <p class="ad-slot__label" aria-hidden="true">Anzeige</p>
+            <div class="ad-slot__frame" data-interface-no-translate></div>
+            <p class="ad-slot__note"><a href="mitglied.html">Werbefrei lesen – kostenlos registrieren.</a></p>
+        </aside>
+
+        <section id="anfrage" class="inquiry-section" aria-labelledby="inquiry-title">
+            <div class="inquiry-intro">
+                <p class="eyebrow">Der direkte Weg zu mir</p>
+                <h2 id="inquiry-title">Beschreiben Sie kurz, was Sie benötigen.</h2>
+                <p>Einige Eckdaten genügen für den Anfang. Sie sehen sofort einen realistischen Preisrahmen; anschließend prüfe ich Ihre Anfrage persönlich und bestätige Aufwand, Preis und nächsten Schritt.</p>
+                <div class="response-promise">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                    <span><strong>Persönliche Rückmeldung</strong> mit einer klaren Einschätzung zu den nächsten Schritten.</span>
+                </div>
+            </div>
+
+            <div class="inquiry-shell">
+                <div class="inquiry-tabs" role="tablist" aria-label="Art der Anfrage">
+                    <button type="button" class="inquiry-tab is-active" id="tab-translation" role="tab" aria-selected="true" aria-controls="panel-translation" data-inquiry-tab="translation"><span>01</span> Übersetzung</button>
+                    <button type="button" class="inquiry-tab" id="tab-tutoring" role="tab" aria-selected="false" aria-controls="panel-tutoring" data-inquiry-tab="tutoring"><span>02</span> Nachhilfe</button>
+                </div>
+
+                <div id="panel-translation" class="inquiry-panel" role="tabpanel" aria-labelledby="tab-translation" data-inquiry-panel="translation">
+                    <form name="translation-inquiry" id="translation-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" data-inquiry-form="translation">
+                        <input type="hidden" name="form-name" value="translation-inquiry">
+                        <input type="hidden" name="subject" value="Neue Übersetzungsanfrage über iHelpLang">
+                        <p class="honeypot"><label>Bitte nicht ausfüllen: <input name="bot-field"></label></p>
+                        <div class="form-progress" aria-label="Fortschritt"><span class="is-active">Projekt</span><span>Kontakt</span></div>
+                        <div class="form-step is-active" data-form-step="1">
+                            <div class="field-grid field-grid--split">
+                                <label>Ausgangssprache<select name="source-language" required><option value="">Bitte wählen</option><option>Deutsch</option><option>Englisch</option></select></label>
+                                <label>Zielsprache<select name="target-language" required><option value="">Bitte wählen</option><option>Deutsch</option><option>Englisch</option></select></label>
+                            </div>
+                            <div class="field-grid field-grid--split">
+                                <label>Texttyp<select name="text-type" required><option value="">Bitte wählen</option><option value="general">Allgemeine Korrespondenz</option><option value="business">Bewerbung &amp; Geschäftstext</option><option value="marketing">Website &amp; Marketing</option><option value="technical">Technischer Fachtext</option><option value="academic">Wissenschaftlicher Text</option></select></label>
+                                <label>Wortzahl des Ausgangstexts <span class="field-note">Eine gute Schätzung genügt</span><input type="text" name="word-count" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="z. B. 1250" required></label>
+                            </div>
+                            <div class="field-grid field-grid--split">
+                                <label>Bearbeitungstempo<select name="turnaround" required><option value="">Bitte wählen</option><option value="relaxed">Ruhig · 7+ Werktage</option><option value="standard">Standard · 4–6 Werktage</option><option value="urgent">Eilig · 2–3 Werktage</option><option value="express">Express · innerhalb 24 Stunden</option></select></label>
+                                <label>Wunschtermin <span class="field-note">optional</span><input type="date" name="deadline"></label>
+                            </div>
+                            <aside class="price-estimate" data-price-estimate aria-live="polite">
+                                <div class="price-estimate__heading">
+                                    <div>
+                                        <span class="price-estimate__eyebrow">Ihre Sofortschätzung</span>
+                                        <strong data-estimate-price data-interface-no-translate>Wortzahl, Texttyp und Tempo auswählen</strong>
+                                    </div>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7.5h16M6.5 4v3.5M17.5 4v3.5M5.5 11h4v3h-4zM12 11h6.5M12 15h4.5M5.5 17.5h13"/></svg>
+                                </div>
+                                <p class="price-estimate__hint" data-estimate-hint hidden data-interface-no-translate></p>
+                                <div class="price-estimate__details" data-estimate-details hidden>
+                                    <span>Berechnungsbasis: <b data-estimate-basis data-interface-no-translate></b></span>
+                                    <span>Kalkulierter Wortpreis: <b data-estimate-rate data-interface-no-translate></b></span>
+                                </div>
+                                <p class="price-estimate__minimum" data-estimate-minimum hidden>Der Preisrahmen berücksichtigt den Mindestaufwand für Einrichtung, Übersetzung und Schlusskontrolle.</p>
+                                <p class="price-estimate__note">Unverbindliche Orientierung für Deutsch ↔ Englisch. Dateiformat, besondere Terminologie oder zusätzlicher Abstimmungsbedarf können den finalen Preis verändern.</p>
+                            </aside>
+                            <input type="hidden" name="price-estimate" data-estimate-field>
+                            <input type="hidden" name="calculated-word-rate" data-rate-field>
+                            <label>Optional: Datei zur Einschätzung <span class="field-note">PDF, Word oder Text · maximal 5 MB</span><input type="file" name="project-file" accept=".pdf,.doc,.docx,.txt,.rtf,.odt" data-max-size="5242880"></label>
+                            <p class="field-error" data-file-error role="alert"></p>
+                            <div class="form-actions"><button type="button" class="btn form-next">Weiter zu Ihren Kontaktdaten</button></div>
+                        </div>
+                        <div class="form-step" data-form-step="2" hidden>
+                            <div class="field-grid field-grid--split">
+                                <label>Ihr Name<input type="text" name="name" autocomplete="name" required maxlength="100"></label>
+                                <label>E-Mail-Adresse<input type="email" name="email" autocomplete="email" required maxlength="160"></label>
+                            </div>
+                            <label>Telefonnummer <span class="field-note">optional</span><input type="tel" name="phone" autocomplete="tel" maxlength="40"></label>
+                            <label>Was sollte ich zusätzlich wissen?<textarea name="message" rows="4" maxlength="1500" placeholder="Stil, Zielgruppe, besondere Begriffe oder Fragen"></textarea></label>
+                            <label class="consent"><input type="checkbox" name="privacy-consent" value="Ja" required><span>Ich stimme zu, dass meine Angaben zur Bearbeitung dieser Anfrage verwendet werden. Hinweise dazu stehen im <a href="#datenschutz">Datenschutzabschnitt</a>.</span></label>
+                            <div class="form-actions form-actions--between"><button type="button" class="btn-secondary form-back">Zurück</button><button type="submit" class="btn">Anfrage senden</button></div>
+                        </div>
+                        <div class="form-status" aria-live="polite" data-interface-no-translate></div>
+                    </form>
+                </div>
+
+                <div id="panel-tutoring" class="inquiry-panel" role="tabpanel" aria-labelledby="tab-tutoring" data-inquiry-panel="tutoring" hidden>
+                    <form name="tutoring-inquiry" id="tutoring-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-inquiry-form="tutoring">
+                        <input type="hidden" name="form-name" value="tutoring-inquiry">
+                        <input type="hidden" name="subject" value="Neue Nachhilfeanfrage über iHelpLang">
+                        <p class="honeypot"><label>Bitte nicht ausfüllen: <input name="bot-field"></label></p>
+                        <div class="form-progress" aria-label="Fortschritt"><span class="is-active">Lernziel</span><span>Kontakt</span></div>
+                        <div class="form-step is-active" data-form-step="1">
+                            <label>Was möchten Sie erreichen?<select name="learning-goal" required><option value="">Bitte wählen</option><option>Schulnoten verbessern</option><option>Prüfung vorbereiten</option><option>Sicherer sprechen</option><option>Englisch im Beruf</option><option>Grammatik und Schreiben</option><option>Anderes Ziel</option></select></label>
+                            <div class="field-grid field-grid--split">
+                                <label>Aktuelles Niveau<select name="current-level" required><option value="">Bitte wählen</option><option>Anfänger</option><option>Grundkenntnisse</option><option>Fortgeschritten</option><option>Sehr sicher</option><option>Noch nicht bekannt</option></select></label>
+                                <label>Format<select name="lesson-format" required><option value="">Bitte wählen</option><option>Online</option><option>Vor Ort</option><option>Beide Formate</option></select></label>
+                            </div>
+                            <div class="field-grid field-grid--split">
+                                <label>Unterrichtslänge<select name="lesson-length" required><option value="">Bitte wählen</option><option>60 Minuten</option><option>90 Minuten</option><option>Noch nicht festgelegt</option></select></label>
+                                <label>Wann ist es Ihnen meistens recht?<input type="text" name="availability" placeholder="z. B. Dienstagabend" required maxlength="120"></label>
+                            </div>
+                            <div class="form-actions"><button type="button" class="btn form-next">Weiter zu Ihren Kontaktdaten</button></div>
+                        </div>
+                        <div class="form-step" data-form-step="2" hidden>
+                            <div class="field-grid field-grid--split">
+                                <label>Ihr Name<input type="text" name="name" autocomplete="name" required maxlength="100"></label>
+                                <label>E-Mail-Adresse<input type="email" name="email" autocomplete="email" required maxlength="160"></label>
+                            </div>
+                            <label>Telefonnummer <span class="field-note">optional</span><input type="tel" name="phone" autocomplete="tel" maxlength="40"></label>
+                            <label>Was sollte ich vorab erfahren?<textarea name="message" rows="4" maxlength="1500" placeholder="Klassenstufe, Prüfung, konkrete Schwierigkeiten oder Wünsche"></textarea></label>
+                            <label class="consent"><input type="checkbox" name="privacy-consent" value="Ja" required><span>Ich stimme zu, dass meine Angaben zur Bearbeitung dieser Anfrage verwendet werden. Hinweise dazu stehen im <a href="#datenschutz">Datenschutzabschnitt</a>.</span></label>
+                            <div class="form-actions form-actions--between"><button type="button" class="btn-secondary form-back">Zurück</button><button type="submit" class="btn">Anfrage senden</button></div>
+                        </div>
+                        <div class="form-status" aria-live="polite" data-interface-no-translate></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="document-translator" class="card dt-card notranslate">
+            <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
+            <h3>Datei-Übersetzung <span class="dt-pair">EN &harr; DE</span></h3>
+            <p class="dt-lead">Legen Sie Ihre Textdatei hier ab. Welche Sprache darin enthalten ist, erkenne ich automatisch – und übersetze sofort in die jeweils andere. Dieses Werkzeug ist ganz auf <strong>Englisch &harr; Deutsch</strong> eingestellt.</p>
+            <input type="file" id="dt-file" class="dt-file-input" accept="text/plain,.txt,.text,.md,.markdown,.csv,.log">
+            <label id="dt-dropzone" class="dt-dropzone" for="dt-file">
+                <svg class="dt-dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="m7.5 8.5 4.5-4.5 4.5 4.5"/><path d="M4 15v3.5A2.5 2.5 0 0 0 6.5 21h11a2.5 2.5 0 0 0 2.5-2.5V15"/></svg>
+                <span class="dt-dropzone-title">Datei hierher ziehen – oder auswählen</span>
+                <span class="dt-dropzone-hint">.txt, .md, .csv, .log &middot; eine Datei, bis 15.000 Zeichen</span>
+            </label>
+            <div id="dt-file-meta" class="dt-file-meta" data-interface-no-translate hidden>
+                <span class="dt-file-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg></span>
+                <span class="dt-file-text"><strong id="dt-file-name"></strong><small id="dt-file-info"></small></span>
+                <button type="button" id="dt-clear" class="dt-clear" aria-label="Datei entfernen">Entfernen</button>
+            </div>
+            <label class="dt-label" for="dt-source">Ihr Text – hier können Sie vor dem Übersetzen noch Anpassungen vornehmen</label>
+            <textarea id="dt-source" class="dt-source" placeholder="Sobald die Datei vorliegt, steht ihr Inhalt hier. Sie können den Text auch direkt einfügen."></textarea>
+            <p id="dt-counter" class="dt-counter" data-interface-no-translate></p>
+            <div class="dt-langbar">
+                <span class="dt-lang"><label for="dt-detected">Sprache des Textes</label><select id="dt-detected" class="dt-lang-value dt-lang-select"><option value="auto" data-interface-no-translate>Automatische Erkennung</option><option value="de">Deutsch</option><option value="en">Englisch</option></select></span>
+                <svg class="dt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg>
+                <span class="dt-lang"><label for="dt-target">Übersetze nach</label><select id="dt-target" class="dt-lang-value dt-lang-select"><option value="auto" data-interface-no-translate>wird erkannt</option><option value="de">Deutsch</option><option value="en">Englisch</option></select></span>
+                <button type="button" id="dt-swap" class="dt-swap" data-interface-no-translate>Richtung wechseln</button>
+            </div>
+            <p class="dt-langhint">Solange links „Automatische Erkennung" steht, erkenne ich die Sprache selbst – mein Fund steht dann in Klammern dahinter. Liege ich daneben, stellen Sie links die richtige Sprache ein; übersetzt wird immer in die jeweils andere der beiden.</p>
+            <button type="button" id="dt-translate" class="btn dt-translate" data-interface-no-translate>Übersetzen</button>
+            <p id="dt-translate-hint" class="dt-translate-hint">Die Schaltfläche wird aktiv, sobald Text im Feld steht – Legen Sie oben eine Datei ab oder fügen Sie Ihren Text direkt ein.</p>
+            <p id="dt-status" class="dt-status" role="status" aria-live="polite" data-interface-no-translate hidden></p>
+            <p id="dt-quota" class="dt-quota" data-interface-no-translate hidden></p>
+            <div id="dt-result" class="dt-result" hidden>
+                <div class="dt-result-head"><h4>Ihre Übersetzung</h4><div class="dt-result-actions"><button type="button" id="dt-copy" class="btn-secondary" data-interface-no-translate>Kopieren</button><button type="button" id="dt-download" class="btn-secondary">Als .txt speichern</button></div></div>
+                <div id="dt-output" class="dt-output" data-interface-no-translate></div>
+            </div>
+            <p class="dt-footnote">Dies ist die automatische Übersetzung – gut, um den Inhalt zu erfassen. Soll der Text präzise sein, übersetze ich ihn persönlich für Sie – <button type="button" class="link-button" data-inquiry-open="translation">persönliche Übersetzung anfragen</button>.</p>
+        </section>
+
+        <section id="translator-section" class="card">
+            <h3>Text-Übersetzer für alles andere</h3>
+            <p class="translator-disclaimer notranslate"><strong>Vorab:</strong> Persönlich übersetze ich nur zwischen <span class="highlight">Deutsch &larr;&rarr; Englisch</span>. Für alle anderen Sprachen übernimmt dieses automatische Werkzeug.</p>
+            <p>Fügen Sie Ihren Text ein und wählen Sie, in welche Sprache übersetzt werden soll. Ganze Textdateien nimmt Ihnen die <a href="#document-translator">Datei-Übersetzung</a> weiter oben ab.</p>
+            <div class="translator-controls"><button id="paste-btn" class="btn-secondary">Text aus der Zwischenablage holen</button></div>
+            <textarea id="translate-input" maxlength="15000" placeholder="Schreiben oder fügen Sie Ihren Text ein – den Rest übernehme ich."></textarea>
+            <p id="text-translate-counter" class="text-translate-counter" data-interface-no-translate>0 / 15.000 Zeichen</p>
+            <p style="text-align: center; margin-bottom: 8px; font-size: 0.9rem; color: var(--ink-muted);">In welche Sprache soll übersetzt werden?</p>
+            <div class="translation-buttons">
+                <button type="button" data-translate-target="de" class="btn-lang" data-interface-no-translate>Deutsch</button>
+                <button type="button" data-translate-target="en" class="btn-lang" data-interface-no-translate>English</button>
+                <button type="button" data-translate-target="es" class="btn-lang" data-interface-no-translate>Español</button>
+                <button type="button" data-translate-target="fr" class="btn-lang" data-interface-no-translate>Français</button>
+                <button type="button" data-translate-target="it" class="btn-lang" data-interface-no-translate>Italiano</button>
+                <button type="button" data-translate-target="nl" class="btn-lang" data-interface-no-translate>Nederlands</button>
+                <button type="button" data-translate-target="uk" class="btn-lang" data-interface-no-translate>Українська</button>
+                <button type="button" data-translate-target="ru" class="btn-lang" data-interface-no-translate>Русский</button>
+            </div>
+            <p id="text-translate-status" class="text-translate-status" role="status" aria-live="polite" data-interface-no-translate hidden></p>
+            <p id="text-translate-quota" class="dt-quota" data-interface-no-translate hidden></p>
+            <div id="text-translate-result" class="text-translate-result" hidden>
+                <div class="text-translate-result-head"><strong id="text-translate-result-title" data-interface-no-translate>Übersetzung</strong><button type="button" id="text-translate-copy" class="btn-secondary" data-interface-no-translate>Kopieren</button></div>
+                <div id="text-translate-output" class="text-translate-output" data-interface-no-translate></div>
+            </div>
+        </section>
+
+        <section id="werbefrei" class="member-promo" aria-labelledby="member-promo-title">
+            <div>
+                <p class="eyebrow">Kostenlos, mit oder ohne Konto</p>
+                <h2 id="member-promo-title">Alle Werkzeuge kostenlos nutzen – ohne Konto mit Werbung, mit Konto werbefrei.</h2>
+                <p>Alle Werkzeuge sind und bleiben kostenlos. Ohne Anmeldung ist die Werbung dafür verpflichtend – sie finanziert Rechenzeit und Sprachmodelle. Wer sich kostenlos registriert, sieht keine Anzeigen mehr und erhält vier zusätzliche Vorteile.</p>
+                <ul class="member-promo__list">
+                    <li><strong>Keine Werbung</strong> – für angemeldete Mitglieder wird kein Werbeskript geladen.</li>
+                    <li><strong>25 % mehr kostenlose automatische Übersetzungen pro Tag</strong>, bei Text und Datei.</li>
+                    <li><strong>Kostenloser Newsletter</strong> mit Sprachtipps, freiwillig und jederzeit abbestellbar.</li>
+                    <li><strong>Monatliche Verlosung:</strong> 50 % Rabatt auf eine persönliche Übersetzung.</li>
+                </ul>
+            </div>
+            <div class="member-promo__actions">
+                <a class="member-button member-button--primary" href="mitglied.html">Kostenlos registrieren</a>
+                <a class="member-link-button" href="mitglied.html#member-login-panel">Ich habe schon ein Konto</a>
+                <p class="member-promo__note">Keine Zahlungsdaten, keine Testphase. E-Mail-Adresse und Passwort genügen.</p>
+            </div>
+        </section>
+
+        <aside class="ad-slot" data-ad-slot-name="start-mitte" aria-label="Anzeige" hidden>
+            <p class="ad-slot__label" aria-hidden="true">Anzeige</p>
+            <div class="ad-slot__frame" data-interface-no-translate></div>
+            <p class="ad-slot__note"><a href="mitglied.html">Werbefrei lesen – kostenlos registrieren.</a></p>
+        </aside>
+
+        <section id="vertrauen" class="trust-section" aria-labelledby="trust-title">
+            <div class="trust-heading">
+                <p class="eyebrow">So läuft Ihr Auftrag</p>
+                <h2 id="trust-title">Vom Rohtext zur fertigen Fassung – ohne Rätselraten dazwischen.</h2>
+                <p>Hier sehen Sie, was nach Ihrer Anfrage passiert, welches Ergebnis Sie in jedem Schritt erhalten und wann die automatische Übersetzung die bessere Wahl ist.</p>
+            </div>
+            <div class="process-layout">
+                <div class="process-list" aria-label="Ablauf einer persönlichen Übersetzung">
+                    <article class="process-step"><span class="process-number">01</span><div><p class="process-kicker">Einordnen</p><h3>Zweck, Zielgruppe und Wunschtermin klären</h3><p>Sie senden den Text oder beschreiben Ihr Vorhaben. Gemeinsam klären wir, was er erreichen soll, für wen er bestimmt ist – etwa Personalabteilung, Kundschaft, Behörde oder Fachpublikum – und wann Sie ihn benötigen.</p><span class="process-result">Ihr Ergebnis: eine klare Einschätzung zu Preis und Termin</span></div></article>
+                    <article class="process-step"><span class="process-number">02</span><div><p class="process-kicker">Übersetzen</p><h3>Bedeutung und Ton zusammenbringen</h3><p>Ich übertrage nicht nur Wörter, sondern passe Stil, Anrede und Sprachgefühl an den tatsächlichen Verwendungszweck an.</p><span class="process-result">Ihr Ergebnis: eine verständliche, passende Arbeitsfassung</span></div></article>
+                    <article class="process-step"><span class="process-number">03</span><div><p class="process-kicker">Abschließen</p><h3>Prüfen, übergeben, optimieren</h3><p>Nach der Schlusskontrolle erhalten Sie die fertige Fassung. Falls eine Formulierung noch nicht zu Ihnen passt, stimmen wir sie gemeinsam ab.</p><span class="process-result">Ihr Ergebnis: ein Text, den Sie direkt verwenden können</span></div></article>
+                </div>
+                <aside class="route-card" aria-labelledby="route-title">
+                    <p class="eyebrow">Welcher Weg passt?</p>
+                    <h3 id="route-title">Nicht jeder Text braucht denselben Aufwand.</h3>
+                    <div class="route-option"><span class="route-label">Sofort &amp; automatisch</span><p>Für kurze Texte, einen schnellen Überblick oder eine erste Arbeitsgrundlage.</p><a class="text-link" href="#document-translator">Datei jetzt übersetzen <span aria-hidden="true">→</span></a></div>
+                    <div class="route-option route-option--personal"><span class="route-label">Persönlich &amp; sorgfältig</span><p>Für Bewerbungen, offizielle Schreiben, Veröffentlichungen oder Texte, bei denen der Ton stimmen muss.</p><button type="button" class="btn" data-inquiry-open="translation">Persönliche Übersetzung anfragen</button></div>
+                    <p class="route-note">Unsicher? Mira stellt einige kurze Fragen und führt Sie zum passenden Einstieg.</p>
+                    <button type="button" class="route-chat" onclick="window.iHelpChat && window.iHelpChat.open()">Mit Mira den passenden Weg finden</button>
+                </aside>
+            </div>
+            <div id="datenschutz" class="privacy-note">
+                <div><p class="eyebrow">Datenschutz in klaren Worten</p><h3>Was mit Ihren Angaben geschieht</h3></div>
+                <div class="privacy-copy">
+                    <p>Anfragen aus den Formularen werden über Netlify Forms übermittelt und zur Kontaktaufnahme sowie zur Einschätzung Ihres Auftrags verwendet. Bitte laden Sie keine Ausweis-, Gesundheits-, Bank- oder sonstigen besonders sensiblen Daten hoch.</p>
+                    <p>Die automatischen Übersetzer verarbeiten den eingegebenen Text über Netlify AI Gateway zur Erstellung der Übersetzung. Mira speichert den Gesprächsverlauf nur für die aktuelle Browser-Sitzung; bei einer Übergabe entscheiden Sie selbst, welche Zusammenfassung im Anfrageformular stehen bleibt.</p>
+                    <p>Ein kostenloses Konto speichert Ihre E-Mail-Adresse, das Passwort als Prüfsumme (Netlify Identity) sowie die beiden Häkchen für Newsletter und Verlosung mit dem Zeitpunkt der Einwilligung – beim Newsletter ist dieser Nachweis gesetzlich gefordert. Beides können Sie jederzeit im <a href="mitglied.html">Mitgliedsbereich</a> widerrufen; für angemeldete Mitglieder wird kein Werbeskript geladen.</p>
+                    <details><summary>Welche externen Dienste sind eingebunden?</summary><p>Für den Betrieb werden Netlify, Plausible Analytics, Google Fonts, Open-Meteo, OpenStreetMap/Nominatim sowie die sichtbaren BOINC-Inhalte eingesetzt. Browser können dabei technische Verbindungsdaten an diese Anbieter übermitteln.</p><p>Für Werbung kommen Google AdSense (Startseite und „Nebenbei") und Bitmedia (Wallet-Seite) hinzu. Diese beiden laden erst, nachdem Sie eingewilligt haben – lehnen Sie ab, wird kein Werbeskript ausgeführt. Einzelheiten stehen im <a href="/impressum.html#legal-ads">Impressum</a>.</p></details>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 iHelpLang &middot; Für alle, die zwischen zwei Sprachen vermitteln. &middot; <a href="mitglied.html">Werbefrei registrieren</a> &middot; <a href="/impressum.html">Impressum</a> &middot; <a href="#datenschutz">Datenschutz</a> &middot; <a href="extras/">Nebenbei</a></p>
+        <p class="footer-support" id="support-note" hidden><a id="support-link" href="https://example.com/REPLACE-WITH-YOUR-SUPPORT-URL" rel="noopener" target="_blank">Die kostenlosen Werkzeuge unterstützen</a></p>
+    </footer>
+
+    <script>
+        (function () {
+            var link = document.getElementById('support-link');
+            var note = document.getElementById('support-note');
+            if (link && note && link.getAttribute('href').indexOf('REPLACE-WITH') === -1) { note.hidden = false; }
+        })();
+        const translateInput = document.getElementById('translate-input');
+        const pasteBtn = document.getElementById('paste-btn');
+        pasteBtn.addEventListener('click', async function() {
+            try { const text = await navigator.clipboard.readText(); translateInput.value = text; }
+            catch (err) { alert('Der Browser erlaubt derzeit keinen Zugriff auf die Zwischenablage. Bitte fügen Sie den Text manuell ein.'); }
+        });
+    </script>
+
+<a href="tracker.html" aria-label="Krypto Tracker" title="Krypto Tracker" style="position: fixed; left: env(safe-area-inset-left, 0); bottom: env(safe-area-inset-bottom, 0); display: block; width: 15px; height: 15px; background: transparent; cursor: pointer; z-index: 99999;"></a>
+
+<script src="interface-translations.js" defer></script>
+<script src="interface-runtime-translations.js" defer></script>
+<script src="interface-language.js" defer></script>
+<script src="chatbot.js" defer></script>
+<script src="doc-translator.js" defer></script>
+<script src="text-translator.js" defer></script>
+<script src="inquiries.js" defer></script>
+<script src="navigation.js" defer></script>
+<script src="member.js" defer></script>
+<script src="ads.js" defer></script>
+<script src="pwa-register.js" defer></script>
+
+</body>
+</html>
